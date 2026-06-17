@@ -1,19 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SkillTags from '../components/SkillTags.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
 import site from '../data/site.json';
 ---
 
 <BaseLayout title="About" description="I'm a problem-solving Flutter developer in Bristol — messy repos, AI clean-up, and full-stack builds.">
   <section class="mx-auto max-w-3xl px-6 py-16">
     <div class="flex flex-col sm:flex-row gap-10 items-start">
-      <img
+      <OptimizedImage
         src={site.photo}
         alt={`Portrait of ${site.name}`}
-        width="192"
-        height="192"
+        preset="avatar"
         class="w-48 h-48 rounded-2xl object-cover object-top shadow-lg shrink-0"
-        onerror="this.src='/images/placeholder-avatar.svg'"
       />
       <div>
         <h1 class="text-3xl font-bold text-ink">About</h1>

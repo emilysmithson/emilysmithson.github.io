@@ -1,4 +1,6 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+
 interface Props {
   heading: string;
   image: string;
@@ -17,13 +19,11 @@ const { heading, image, alt, align = 'right' } = Astro.props;
   ]}
 >
   <figure class="mx-auto shrink-0 md:mx-0">
-    <img
+    <OptimizedImage
       src={image}
       alt={alt ?? heading}
+      preset="feature"
       class="w-[220px] rounded-2xl border border-border shadow-md sm:w-[240px]"
-      loading="lazy"
-      width="392"
-      height="717"
     />
   </figure>
   <div class="min-w-0 flex-1">

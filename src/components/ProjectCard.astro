@@ -1,4 +1,6 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+
 interface ProjectLinks {
   github?: string;
   playStore?: string;
@@ -28,12 +30,11 @@ const typeLabel = type.charAt(0).toUpperCase() + type.slice(1);
     href={href}
     class="flex items-center justify-center bg-surface-muted px-4 pt-5 pb-3"
   >
-    <img
+    <OptimizedImage
       src={image}
       alt={`App icon for ${title}`}
+      preset="icon"
       class="size-16 object-contain rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-[1.03]"
-      loading="lazy"
-      onerror="this.src='/images/placeholder-project.svg'"
     />
   </a>
   <div class="flex flex-1 flex-col px-4 pb-4">
