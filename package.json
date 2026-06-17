@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "compress-images": "node scripts/compress-images.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

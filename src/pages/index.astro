@@ -1,18 +1,29 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SkillTags from '../components/SkillTags.astro';
 import { getCollection } from 'astro:content';
 import site from '../data/site.json';
+import headshot from '../assets/images/emily-headshot.jpg';
+import { imagePresets } from '../lib/images';
 
 const allProjects = await getCollection('projects');
 const featured = allProjects
   .filter((p) => p.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
+
+const avatar = imagePresets.avatar;
+const lcpImage = await getImage({
+  src: headshot,
+  width: avatar.width,
+  height: avatar.height,
+  format: 'webp',
+});
 ---
 
-<BaseLayout title={site.name}>
+<BaseLayout title={site.name} lcpImage={lcpImage.src}>
   <Hero />
   <section class="mx-auto max-w-5xl px-6 py-16">
     <div class="flex items-end justify-between gap-4 mb-8">
