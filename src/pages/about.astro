@@ -28,10 +28,13 @@ import site from '../data/site.json';
         CI/CD, and quality-focused delivery — from greenfield builds to large-scale consumer apps.
       </p>
       <p>
-        As co-founder and lead developer of Melody, she owns the full mobile stack: architecture,
-        backend integration, monetisation, testing, and App Store / Play Store release. Previously
-        she led a greenfield rewrite at HomeLink and spent two and a half years on Nextbase's
-        flagship iQ dash cam app as part of a 10-person Flutter team.
+        As co-founder and sole mobile developer of <strong>Melody</strong> — a women's health
+        platform with an AI-powered Menstrual Coach — she built a production Flutter app from
+        scratch: Melos monorepo, Vertex AI with RAG and function calling, 14+ tracking dimensions,
+        RevenueCat freemium monetisation, 250+ tests (unit through Patrol E2E), and automated
+        Fastlane delivery to the App Store and Play Store. Previously she led a greenfield rewrite
+        at HomeLink and spent two and a half years on Nextbase's flagship iQ dash cam app as part
+        of a 10-person Flutter team.
       </p>
       <p>
         Outside client work, she has shipped 8+ independent apps and founded
@@ -71,7 +74,19 @@ import site from '../data/site.json';
           ))
         }
       </ul>
-      <p class="mt-6 text-sm text-ink-muted">Languages: {site.languages}</p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-bold text-ink mb-6">Languages</h2>
+      <ul class="flex flex-wrap gap-2">
+        {
+          site.languages.map((language) => (
+            <li class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 border border-brand-100">
+              {language}
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
     <section class="mt-14">

@@ -6,16 +6,24 @@ end: Present
 order: 1
 tags:
   - Flutter
-  - Firebase
-  - Bloc
-  - RevenueCat
+  - Melos
   - Vertex AI
+  - Firebase
+  - RevenueCat
+  - Cubit
+  - Patrol
   - Shorebird
-highlight: Sole developer of a full production Flutter app — architecture, backend, AI coach, monetisation, and store delivery.
+  - Sentry
+  - Fastlane
+highlight: Sole developer of a production women's health platform — 1,100+ Dart files, 250+ tests, Vertex AI coach, and automated store delivery.
 ---
 
-- Architected and built the full production app as technical co-founder alongside a non-technical product co-founder.
-- Full Firebase backend: Auth, Firestore, Cloud Functions, Analytics, Crashlytics, Remote Config, App Check.
-- AI-powered Menstrual Coach with Vertex AI, function calling, and response caching.
-- RevenueCat freemium subscriptions, in-app purchases, and paywall implementation.
-- Comprehensive quality suite: unit, widget, golden, BDD, and Patrol E2E tests.
+- Technical co-founder and **sole mobile developer** — built the entire production app from architecture through App Store and Play Store release.
+- **Melos monorepo** with `api`, `auth`, and `entities` packages, Widgetbook workspace, and a separate encrypted offline tracker for privacy-conscious users.
+- **Vertex AI Menstrual Coach** — RAG with Firestore content retrieval, context caching, function calling for in-app navigation, and three Gemini models in production.
+- **Full Firebase backend** — versioned Firestore, 12+ Cloud Functions (AI, email, calendar export, auth), App Check, Remote Config, and dual dev/prod environments.
+- **14+ tracking dimensions** and **15+ insight graphs** with healthcare report PDF export, Apple Health sync, and 120+ educational articles.
+- **RevenueCat** freemium monetisation — scenario-based paywalls, subscription guards, web purchase redemption, and trial notifications.
+- **250+ tests** — unit, widget, golden, BDD, integration (real Gemini), and Patrol E2E with robot pattern and isolated test backend.
+- **Fastlane + GitHub Actions** release pipeline to Play Store, TestFlight, and App Store; **Shorebird** OTA patches for production hotfixes.
+- **Sentry** monitoring with in-app feedback; phased startup orchestration for sub-second perceived load time.

@@ -2,7 +2,7 @@
 title: Mesmerising Clock
 tagline: A calm, full-screen analog clock with blending coloured hands
 featured: true
-order: 1
+order: 2
 type: indie
 platforms:
   - Android

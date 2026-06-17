@@ -18,7 +18,8 @@
       "Firestore",
       "Cloud Functions",
       "Analytics",
-      "Crashlytics"
+      "Crashlytics",
+      "App Check"
     ],
     "Quality": [
       "Unit tests",
@@ -32,9 +33,17 @@
       "Widgetbook",
       "Melos",
       "Shorebird",
-      "Sentry"
+      "Sentry",
+      "Fastlane"
     ],
-    "Other": ["RevenueCat", "Stripe", "Go Router", "Vertex AI", "Figma"]
+    "Other": [
+      "RevenueCat",
+      "Stripe",
+      "Go Router",
+      "Vertex AI",
+      "HealthKit",
+      "Figma"
+    ]
   },
   "community": [
     {
@@ -80,5 +89,11 @@
       "institution": "European School, Luxembourg"
     }
   ],
-  "languages": "English · French · Italian · Spanish · German (basic)"
+  "languages": [
+    "English",
+    "French",
+    "Italian",
+    "Spanish",
+    "German"
+  ]
 }
