@@ -15,7 +15,7 @@ const projects = (await getCollection('projects')).sort(
       From Melody — a production women's health platform with Vertex AI — to 8+ indie apps and
       community guides.
     </p>
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+    <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
       {
         projects.map((project) => (
           <ProjectCard
