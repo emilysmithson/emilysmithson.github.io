@@ -1,0 +1,102 @@
+---
+title: Melody
+tagline: Women's health app with seasonal cycle tracking and an AI Menstrual Coach — built solo from zero to production
+featured: true
+order: 1
+type: professional
+platforms:
+  - Android
+  - iOS
+tags:
+  - Flutter
+  - Melos
+  - Vertex AI
+  - Firebase
+  - RevenueCat
+  - Cubit
+  - Patrol
+  - Widgetbook
+  - Shorebird
+  - Sentry
+  - HealthKit
+  - Fastlane
+  - Injectable
+  - Cloud Functions
+links:
+  website: https://livehormoniously.com
+  playStore: PLACEHOLDER
+  appStore: PLACEHOLDER
+images:
+  - /images/projects/melody-hero.png
+demo: null
+---
+
+import ProjectFeature from '../../components/ProjectFeature.astro';
+
+I co-founded **Melody** (Flow With The Seasons) as the sole mobile developer — taking a women's health idea from blank canvas to App Store and Play Store alongside a non-technical product co-founder.
+
+<ProjectFeature
+  heading="Predict your period, phase and season"
+  image="/images/projects/melody/home.png"
+  align="right"
+>
+
+Melody frames the cycle in seasons — spring, summer, autumn, winter — so patterns feel intuitive rather than clinical. The home screen centres on a colour-coded cycle ring that shows where you are today, which phase you're in, and what's coming next.
+
+</ProjectFeature>
+
+<ProjectFeature
+  heading="Track what matters to you"
+  image="/images/projects/melody/track.png"
+  align="left"
+>
+
+Daily check-ins cover 14+ dimensions: menstruation, nervous system, energy, emotions, mental state, physical sensations, cravings, BBT, sleep, and more. Users choose what to track and log it in under a minute.
+
+</ProjectFeature>
+
+<ProjectFeature
+  heading="Get deep, personal insights"
+  image="/images/projects/melody/insights.png"
+  align="right"
+>
+
+Tracked data feeds into 15+ insight graph types — patterns across cycles, averages over time, and per-symptom breakdowns. Users can export healthcare reports as PDFs to share with practitioners.
+
+</ProjectFeature>
+
+<ProjectFeature
+  heading="Sync your schedule with your season"
+  image="/images/projects/melody/calendar.png"
+  align="left"
+>
+
+The calendar colour-codes every day by phase and season, so planning around energy and mood shifts becomes second nature. Apple Health sync keeps menstrual flow data consistent across apps.
+
+</ProjectFeature>
+
+<ProjectFeature
+  heading="Access unlimited support articles"
+  image="/images/projects/melody/resources.png"
+  align="right"
+>
+
+A library of 120+ educational articles — organised by season, symptom, and condition — helps users understand what's happening hormonally. Content is piped from Google Docs through a custom HTML pipeline.
+
+</ProjectFeature>
+
+<ProjectFeature
+  heading="Smart cycle-based reminders"
+  image="/images/projects/melody/notifications.png"
+  align="left"
+>
+
+Notifications adapt to the user's current season, nudging rest during winter or celebrating spring energy. The AI Menstrual Coach goes further — Vertex AI (Gemini) with RAG, function calling, and end-of-cycle reports that summarise energy, symptoms, and emotions.
+
+</ProjectFeature>
+
+## Under the hood
+
+Behind the polished UI sits a **Melos monorepo** with shared packages, a Widgetbook design-system workspace, and a separate **privacy-first offline tracker** with Hive encryption. Firebase powers auth, Firestore, and 12+ Cloud Functions; RevenueCat handles freemium subscriptions.
+
+With no other mobile engineer on the team, quality had to be built in: **250+ test files** spanning unit, widget, golden, BDD, integration (against real Gemini), and Patrol E2E. Fastlane and GitHub Actions ship to both stores; Shorebird patches production without waiting on store review.
