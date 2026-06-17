@@ -1,0 +1,75 @@
+---
+interface ProjectLinks {
+  github?: string;
+  playStore?: string;
+  appStore?: string;
+  website?: string;
+  blog?: string;
+}
+
+interface Props {
+  title: string;
+  tagline: string;
+  type: string;
+  platforms: string[];
+  tags: string[];
+  images: string[];
+  links?: ProjectLinks;
+  href: string;
+}
+
+const { title, tagline, type, platforms, tags, images, links, href } = Astro.props;
+const image = images[0] ?? '/images/placeholder-project.svg';
+const typeLabel = type.charAt(0).toUpperCase() + type.slice(1);
+---
+
+<article class="group flex flex-col rounded-xl border border-border bg-surface overflow-hidden hover:border-brand-500/50 hover:shadow-md transition-all">
+  <a href={href} class="block aspect-[16/10] overflow-hidden bg-surface-muted">
+    <img
+      src={image}
+      alt={`Screenshot of ${title}`}
+      class="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+      loading="lazy"
+      onerror="this.src='/images/placeholder-project.svg'"
+    />
+  </a>
+  <div class="flex flex-1 flex-col p-5">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-xs font-medium uppercase tracking-wide text-brand-600">{typeLabel}</span>
+      <span class="text-xs text-ink-muted">·</span>
+      <span class="text-xs text-ink-muted">{platforms.join(', ')}</span>
+    </div>
+    <h3 class="text-lg font-semibold text-ink">
+      <a href={href} class="hover:text-brand-600 transition-colors">{title}</a>
+    </h3>
+    <p class="mt-2 text-sm text-ink-muted line-clamp-2 flex-1">{tagline}</p>
+    <div class="mt-4 flex flex-wrap gap-1.5">
+      {tags.slice(0, 4).map((tag) => (
+        <span class="rounded-full bg-surface-muted px-2.5 py-0.5 text-xs text-ink-muted border border-border">
+          {tag}
+        </span>
+      ))}
+    </div>
+    {
+      links && (links.github || links.playStore || links.appStore) && (
+        <div class="mt-4 pt-4 border-t border-border flex gap-3 text-xs">
+          {links.github && (
+            <a href={links.github} target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">
+              GitHub
+            </a>
+          )}
+          {links.playStore && !links.playStore.startsWith('PLACEHOLDER') && (
+            <a href={links.playStore} target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">
+              Play Store
+            </a>
+          )}
+          {links.appStore && !links.appStore.startsWith('PLACEHOLDER') && (
+            <a href={links.appStore} target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">
+              App Store
+            </a>
+          )}
+        </div>
+      )
+    }
+  </div>
+</article>

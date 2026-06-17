@@ -1,0 +1,84 @@
+{
+  "name": "Emily Smithson",
+  "title": "Flutter Developer",
+  "location": "Bristol, UK",
+  "tagline": "Senior Flutter developer building production iOS and Android apps — from architecture to App Store.",
+  "availability": "Open to permanent, contract and freelance roles · Bristol / hybrid / remote",
+  "email": "emily_foulkes@hotmail.com",
+  "phone": "+447751125922",
+  "whatsapp": "https://wa.me/447751125922",
+  "linkedin": "https://www.linkedin.com/in/emily-smithson/",
+  "github": "https://github.com/emilysmithson",
+  "cvPdf": "/Emily_Smithson_CV_2026_general.pdf",
+  "photo": "/images/emily-headshot.jpg",
+  "skills": {
+    "Core": ["Flutter", "Dart", "Clean Architecture", "Bloc", "Cubit"],
+    "Backend": [
+      "Firebase Auth",
+      "Firestore",
+      "Cloud Functions",
+      "Analytics",
+      "Crashlytics"
+    ],
+    "Quality": [
+      "Unit tests",
+      "Widget tests",
+      "Golden tests",
+      "Patrol E2E",
+      "BDD / Gherkin"
+    ],
+    "Tooling": [
+      "GitHub Actions",
+      "Widgetbook",
+      "Melos",
+      "Shorebird",
+      "Sentry"
+    ],
+    "Other": ["RevenueCat", "Stripe", "Go Router", "Vertex AI", "Figma"]
+  },
+  "community": [
+    {
+      "role": "Founder & Organiser",
+      "organisation": "Flutter SouthWest",
+      "description": "Bristol's Flutter developer meetup, supported by Women's Tech Hub."
+    },
+    {
+      "role": "Flutter Developer Mentor",
+      "organisation": "Women's Tech Hub",
+      "description": "Mentored an aspiring Flutter developer into the industry."
+    },
+    {
+      "role": "Chair",
+      "organisation": "Redland Green Community Group",
+      "description": null
+    },
+    {
+      "role": "Trustee (Secretary)",
+      "organisation": "Cabot District Scout Council",
+      "description": null
+    }
+  ],
+  "education": [
+    {
+      "year": "2000",
+      "qualification": "BA (Hons) Mathematics and Philosophy",
+      "institution": "University of Bristol"
+    },
+    {
+      "year": "2001",
+      "qualification": "ISEB Qualified Software Tester",
+      "institution": null
+    },
+    {
+      "year": "2004",
+      "qualification": "PGCE in Mathematics",
+      "institution": "University of Bristol"
+    },
+    {
+      "year": "1996",
+      "qualification": "European Baccalaureate (75%)",
+      "institution": "European School, Luxembourg"
+    }
+  ],
+  "languages": "English · French · Italian · Spanish · German (basic)"
+}

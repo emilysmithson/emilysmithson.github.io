@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import { getCollection, render } from 'astro:content';
+
+const roles = (await getCollection('experience')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const rolesWithContent = await Promise.all(
+  roles.map(async (role) => {
+    const { Content } = await render(role);
+    return { role, Content };
+  }),
+);
+---
+
+<BaseLayout
+  title="Experience"
+  description="Professional Flutter development experience — Melody, HomeLink, Nextbase, Shift, and more."
+>
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-3xl font-bold text-ink">Experience</h1>
+    <p class="mt-3 text-lg text-ink-muted">
+      7+ years delivering production Flutter apps — from startup modules to flagship consumer products
+      and co-founded ventures.
+    </p>
+    <div class="mt-12">
+      {
+        rolesWithContent.map(({ role, Content }) => (
+          <div class="mb-2">
+            <ExperienceCard
+              title={role.data.title}
+              company={role.data.company}
+              start={role.data.start}
+              end={role.data.end}
+              highlight={role.data.highlight}
+              tags={role.data.tags}
+            />
+            <div class="ml-8 mt-2 mb-8 prose text-sm">
+              <Content />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

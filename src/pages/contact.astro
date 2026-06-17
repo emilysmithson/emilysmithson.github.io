@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+---
+
+<BaseLayout title="Contact" description="Get in touch with Emily Smithson for Flutter roles and collaborations.">
+  <section class="mx-auto max-w-2xl px-6 py-16">
+    <h1 class="text-3xl font-bold text-ink">Contact</h1>
+    <p class="mt-3 text-lg text-ink-muted">
+      I'm open to senior, lead, and contract Flutter roles — Bristol, hybrid, or remote. Whether you
+      have a role in mind or just want to say hello, I'd love to hear from you.
+    </p>
+
+    <div class="mt-10 space-y-4">
+      <a
+        href={`mailto:${site.email}`}
+        class="flex items-center gap-4 rounded-xl border border-border p-5 hover:border-brand-500 transition-colors group"
+      >
+        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600 text-lg">✉</span>
+        <div>
+          <p class="font-medium text-ink group-hover:text-brand-600 transition-colors">Email</p>
+          <p class="text-sm text-ink-muted">{site.email}</p>
+        </div>
+      </a>
+
+      <a
+        href={site.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-4 rounded-xl border border-border p-5 hover:border-brand-500 transition-colors group"
+      >
+        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600 text-lg font-bold">in</span>
+        <div>
+          <p class="font-medium text-ink group-hover:text-brand-600 transition-colors">LinkedIn</p>
+          <p class="text-sm text-ink-muted">linkedin.com/in/emily-smithson</p>
+        </div>
+      </a>
+
+      <a
+        href={site.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-4 rounded-xl border border-border p-5 hover:border-brand-500 transition-colors group"
+      >
+        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600 text-lg">💬</span>
+        <div>
+          <p class="font-medium text-ink group-hover:text-brand-600 transition-colors">WhatsApp</p>
+          <p class="text-sm text-ink-muted">{site.phone}</p>
+        </div>
+      </a>
+
+      <a
+        href={site.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-4 rounded-xl border border-border p-5 hover:border-brand-500 transition-colors group"
+      >
+        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600 text-lg">{ }</span>
+        <div>
+          <p class="font-medium text-ink group-hover:text-brand-600 transition-colors">GitHub</p>
+          <p class="text-sm text-ink-muted">github.com/emilysmithson</p>
+        </div>
+      </a>
+
+      <a
+        href={site.cvPdf}
+        class="flex items-center gap-4 rounded-xl border border-border p-5 hover:border-brand-500 transition-colors group"
+      >
+        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600 text-lg">📄</span>
+        <div>
+          <p class="font-medium text-ink group-hover:text-brand-600 transition-colors">Download CV</p>
+          <p class="text-sm text-ink-muted">PDF · updated 2026</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

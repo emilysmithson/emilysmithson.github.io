@@ -1,0 +1,25 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  height?: number;
+}
+
+const { src, title, height = 560 } = Astro.props;
+---
+
+<div class="rounded-xl border border-border overflow-hidden bg-surface-muted">
+  <iframe
+    src={src}
+    title={title}
+    width="100%"
+    height={height}
+    loading="lazy"
+    class="w-full border-0"
+  ></iframe>
+</div>
+<p class="mt-2 text-sm text-ink-muted">
+  <a href={src} target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">
+    Open demo in full screen
+  </a>
+</p>

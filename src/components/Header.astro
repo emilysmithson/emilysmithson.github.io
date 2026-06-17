@@ -1,0 +1,57 @@
+---
+import site from '../data/site.json';
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-lg font-semibold text-ink hover:text-brand-600 transition-colors">
+      {site.name}
+    </a>
+    <nav class="hidden sm:flex items-center gap-6" aria-label="Main">
+      {
+        navItems.map((item) => {
+          const isActive =
+            item.href === '/'
+              ? currentPath === '/'
+              : currentPath.startsWith(item.href);
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                'text-sm font-medium transition-colors',
+                isActive ? 'text-brand-600' : 'text-ink-muted hover:text-ink',
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+    <a
+      href={site.cvPdf}
+      class="hidden sm:inline-flex items-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700 transition-colors"
+    >
+      Download CV
+    </a>
+  </div>
+  <nav class="sm:hidden flex overflow-x-auto gap-4 px-6 pb-3 border-t border-border pt-3" aria-label="Mobile">
+    {
+      navItems.map((item) => (
+        <a href={item.href} class="text-sm font-medium text-ink-muted whitespace-nowrap hover:text-ink">
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

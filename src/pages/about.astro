@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SkillTags from '../components/SkillTags.astro';
+import site from '../data/site.json';
+---
+
+<BaseLayout title="About" description={`About ${site.name} — Flutter developer in Bristol.`}>
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <div class="flex flex-col sm:flex-row gap-10 items-start">
+      <img
+        src={site.photo}
+        alt={`Portrait of ${site.name}`}
+        width="192"
+        height="192"
+        class="w-48 h-48 rounded-2xl object-cover object-top shadow-lg shrink-0"
+        onerror="this.src='/images/placeholder-avatar.svg'"
+      />
+      <div>
+        <h1 class="text-3xl font-bold text-ink">About</h1>
+        <p class="mt-2 text-ink-muted">{site.title} · {site.location}</p>
+      </div>
+    </div>
+
+    <div class="mt-10 prose">
+      <p>
+        Emily is a Senior Flutter Developer based in Bristol, specialising in production iOS and
+        Android applications. She has deep experience with Clean Architecture, Bloc/Cubit, Firebase,
+        CI/CD, and quality-focused delivery — from greenfield builds to large-scale consumer apps.
+      </p>
+      <p>
+        As co-founder and lead developer of Melody, she owns the full mobile stack: architecture,
+        backend integration, monetisation, testing, and App Store / Play Store release. Previously
+        she led a greenfield rewrite at HomeLink and spent two and a half years on Nextbase's
+        flagship iQ dash cam app as part of a 10-person Flutter team.
+      </p>
+      <p>
+        Outside client work, she has shipped 8+ independent apps and founded
+        <strong>Flutter SouthWest</strong>, Bristol's Flutter meetup (supported by Women's Tech Hub).
+        She mentors aspiring developers and brings strong communication skills from a prior career
+        in mathematics teaching.
+      </p>
+    </div>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-bold text-ink mb-6">Community & leadership</h2>
+      <ul class="space-y-4">
+        {
+          site.community.map((item) => (
+            <li class="rounded-xl border border-border p-5">
+              <p class="font-semibold text-ink">{item.role}</p>
+              <p class="text-brand-600 font-medium">{item.organisation}</p>
+              {item.description && <p class="mt-2 text-sm text-ink-muted">{item.description}</p>}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-bold text-ink mb-6">Education</h2>
+      <ul class="space-y-3">
+        {
+          site.education.map((item) => (
+            <li class="flex gap-4 text-sm">
+              <span class="font-medium text-ink-muted w-12 shrink-0">{item.year}</span>
+              <div>
+                <p class="font-medium text-ink">{item.qualification}</p>
+                {item.institution && <p class="text-ink-muted">{item.institution}</p>}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-6 text-sm text-ink-muted">Languages: {site.languages}</p>
+    </section>
+
+    <section class="mt-14">
+      <SkillTags skills={site.skills} />
+    </section>
+  </section>
+</BaseLayout>
