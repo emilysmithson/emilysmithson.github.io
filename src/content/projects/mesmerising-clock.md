@@ -19,6 +19,9 @@ links:
 images:
   - /images/projects/mesmerising-clock-hero.png
   - /images/projects/mesmerising-clock-settings.png
+  - /images/projects/mesmerising_clock/screenshot1.png
+  - /images/projects/mesmerising_clock/screenshot2.png
+  - /images/projects/mesmerising_clock/screenshot3.png
 demo: null
 ---
 
