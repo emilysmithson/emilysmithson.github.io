@@ -48,12 +48,12 @@ const typeLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
     {
       screenshots.length > 0 && (
-        <div class="mt-10 space-y-4">
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {screenshots.map((src) => (
             <img
               src={src}
               alt={`${title} screenshot`}
-              class="w-full rounded-xl border border-border shadow-sm"
+              class="mx-auto w-full max-w-[280px] rounded-2xl border border-border shadow-sm"
               loading="lazy"
               onerror="this.src='/images/placeholder-project.svg'"
             />
