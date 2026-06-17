@@ -47,18 +47,25 @@ Copy `build/web/` to `public/demos/your-app/`, then set `demo: /demos/your-app/`
 
 ## GitHub Pages setup
 
-After pushing to GitHub:
+Your site uses **one** deploy method: the custom GitHub Actions workflow (`.github/workflows/deploy.yml`).
 
-1. Go to **Settings → Pages**
-2. Set **Source** to **GitHub Actions**
+### Required: disable branch deployment
 
-If deploy fails with *"Deployments are only allowed from master"*:
+If you see a failed **"pages build and deployment"** workflow (Jekyll build error), GitHub Pages is still set to **Deploy from a branch** from the old HTML site. That conflicts with Astro.
+
+1. Open **Settings → Pages**
+2. Under **Build and deployment → Source**, select **GitHub Actions** (not "Deploy from a branch")
+3. Save — the Jekyll workflow will stop running on each push
+
+The **"Deploy to GitHub Pages"** workflow is the correct one. When it shows green, https://emilysmithson.github.io is updated.
+
+### If deploy fails with *"Deployments are only allowed from master"*
 
 1. Go to **Settings → Environments → github-pages**
 2. Under **Deployment branches**, choose **All branches** (or add `main`)
 3. Re-run the failed workflow from the **Actions** tab
 
-Alternatively, push to the `master` branch — this repo's Pages environment may be restricted to `master` from the old site setup.
+Or push to `master` — this repo's Pages environment may still be restricted to `master` from the old site setup.
 
 ## Content structure
 
