@@ -15,6 +15,11 @@ links:
   appStore: PLACEHOLDER
 images:
   - /images/projects/redland-green-trail-hero.png
+  - /images/projects/redland_green_tree_trail/400x800bb.png
+  - /images/projects/redland_green_tree_trail/400x800bb-2.png
+  - /images/projects/redland_green_tree_trail/400x800bb-3.png
+  - /images/projects/redland_green_tree_trail/400x800bb-4.png
+  - /images/projects/redland_green_tree_trail/400x800bb-5.png
 demo: null
 ---
 

@@ -15,6 +15,9 @@ links:
   appStore: PLACEHOLDER
 images:
   - /images/projects/petit-zouzous-hero.png
+  - /images/projects/petits_zouzous/400x800bb-6.png
+  - /images/projects/petits_zouzous/400x800bb-7.png
+  - /images/projects/petits_zouzous/400x800bb-8.png
 demo: null
 ---
 
