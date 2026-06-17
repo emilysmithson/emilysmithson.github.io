@@ -52,7 +52,13 @@ After pushing to GitHub:
 1. Go to **Settings → Pages**
 2. Set **Source** to **GitHub Actions**
 
-The deploy workflow runs on every push to `main`.
+If deploy fails with *"Deployments are only allowed from master"*:
+
+1. Go to **Settings → Environments → github-pages**
+2. Under **Deployment branches**, choose **All branches** (or add `main`)
+3. Re-run the failed workflow from the **Actions** tab
+
+Alternatively, push to the `master` branch — this repo's Pages environment may be restricted to `master` from the old site setup.
 
 ## Content structure
 
