@@ -17,6 +17,14 @@ links:
   blog: PLACEHOLDER
 images:
   - /images/projects/bristol-playgrounds-hero.png
+  - /images/projects/bristol_playgrounds/0x0ss-15.png
+  - /images/projects/bristol_playgrounds/0x0ss-16.png
+  - /images/projects/bristol_playgrounds/0x0ss-17.png
+  - /images/projects/bristol_playgrounds/0x0ss-18.png
+  - /images/projects/bristol_playgrounds/0x0ss-19.png
+  - /images/projects/bristol_playgrounds/0x0ss-20.png
+  - /images/projects/bristol_playgrounds/0x0ss-21.png
+  - /images/projects/bristol_playgrounds/0x0ss-22.png
 demo: null
 ---
 
