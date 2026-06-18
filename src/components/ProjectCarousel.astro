@@ -1,0 +1,131 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  viewAllHref?: string;
+}
+
+const { title, description, viewAllHref } = Astro.props;
+const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<section class="project-carousel py-16" data-carousel>
+  <div class="mx-auto max-w-5xl px-6">
+    <div class="mb-8 flex items-end justify-between gap-4">
+      <div class="min-w-0">
+        <h2 class="text-2xl font-bold text-ink">{title}</h2>
+        {description && <p class="mt-2 text-ink-muted">{description}</p>}
+      </div>
+      <div class="flex shrink-0 items-center gap-3">
+        {
+          viewAllHref && (
+            <a href={viewAllHref} class="hidden text-sm font-medium text-brand-600 hover:underline sm:inline">
+              View all →
+            </a>
+          )
+        }
+        <div class="flex gap-1" role="group" aria-label="Carousel navigation">
+          <button
+            type="button"
+            class="inline-flex size-9 items-center justify-center rounded-lg border border-border bg-surface text-ink-muted transition-colors hover:border-brand-500/50 hover:text-brand-600 disabled:pointer-events-none disabled:opacity-40"
+            data-carousel-prev
+            aria-controls={carouselId}
+            aria-label="Previous projects"
+            disabled
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 0 1-.02 1.06L8.832 10l3.938 3.71a.75.75 0 1 1-1.04 1.08l-4.5-4.25a.75.75 0 0 1 0-1.08l4.5-4.25a.75.75 0 0 1 1.06.02Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="inline-flex size-9 items-center justify-center rounded-lg border border-border bg-surface text-ink-muted transition-colors hover:border-brand-500/50 hover:text-brand-600 disabled:pointer-events-none disabled:opacity-40"
+            data-carousel-next
+            aria-controls={carouselId}
+            aria-label="Next projects"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id={carouselId}
+    class="carousel-track flex gap-4 overflow-x-auto scroll-smooth px-6 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
+    data-carousel-track
+    tabindex="0"
+    role="region"
+    aria-label={title}
+  >
+    <div class="shrink-0 w-[max(0px,calc((100vw-64rem)/2))]" aria-hidden="true"></div>
+    <slot />
+    <div class="shrink-0 w-[max(0px,calc((100vw-64rem)/2))]" aria-hidden="true"></div>
+  </div>
+
+  {
+    viewAllHref && (
+      <div class="mx-auto mt-6 max-w-5xl px-6 text-center sm:hidden">
+        <a href={viewAllHref} class="text-sm font-medium text-brand-600 hover:underline">
+          View all projects →
+        </a>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .carousel-track :global(> .carousel-item) {
+    width: min(280px, 75vw);
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+</style>
+
+<script>
+  function initCarousels() {
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+      if (carousel.hasAttribute('data-carousel-init')) return;
+      carousel.setAttribute('data-carousel-init', 'true');
+
+      const track = carousel.querySelector('[data-carousel-track]');
+      const prev = carousel.querySelector('[data-carousel-prev]');
+      const next = carousel.querySelector('[data-carousel-next]');
+
+      if (!(track instanceof HTMLElement) || !(prev instanceof HTMLButtonElement) || !(next instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      const scrollAmount = () => {
+        const firstItem = track.querySelector('.carousel-item');
+        if (!(firstItem instanceof HTMLElement)) return 296;
+        const gap = Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
+        return firstItem.getBoundingClientRect().width + gap;
+      };
+
+      const updateButtons = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = track;
+        prev.disabled = scrollLeft <= 1;
+        next.disabled = scrollLeft + clientWidth >= scrollWidth - 1;
+      };
+
+      prev.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+      });
+
+      next.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+      });
+
+      track.addEventListener('scroll', updateButtons, { passive: true });
+      window.addEventListener('resize', updateButtons, { passive: true });
+      updateButtons();
+    });
+  }
+
+  initCarousels();
+  document.addEventListener('astro:page-load', initCarousels);
+</script>
